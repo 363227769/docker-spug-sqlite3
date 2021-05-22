@@ -21,9 +21,11 @@ RUN mkdir /spug && cd /spug \
     && pip install --no-cache-dir gunicorn -i https://mirrors.aliyun.com/pypi/simple/
 
 # web
-RUN cd /spug && wget https://github.com/openspug/spug/releases/download/v${SPUG_VERSION}/web_${SPUG_VERSION}.tar.gz \
-    && tar zxf spug_${SPUG_VERSION}.tar.gz -C /spug/spug_web/ && rm -rf spug_web_${SPUG_VERSION}.tar.gz
+# https://github.com/openspug/spug/releases/download/v${SPUG_VERSION}/web_v${SPUG_VERSION}.tar.gz
+RUN cd /spug && wget https://github.com/openspug/spug/releases/download/v${SPUG_VERSION}/web_v${SPUG_VERSION}.tar.gz \
+    && tar zxf web_v${SPUG_VERSION}.tar.gz -C /spug/spug_web/ && rm -rf web_v${SPUG_VERSION}.tar.gz
 
+RUN mkdir -p  /spug/spug_api/db
 
 ADD overrides.py /spug/spug_api/spug/overrides.py
 ADD spug.conf /etc/nginx/conf.d/default.conf
