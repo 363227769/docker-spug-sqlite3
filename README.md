@@ -24,6 +24,8 @@ docker exec -it spug sh
  /spug/spug_api/repos
  # spug日志目录
  /spug/spug_api/logs
+ # 密钥
+ /root/.ssh
 ~~~
 
 ## 启动
