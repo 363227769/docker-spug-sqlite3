@@ -5,7 +5,6 @@ ENV SPUG_VERSION 2.3.16
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
 
-
 RUN apk add --no-cache nginx git openldap-dev supervisor redis bash
 
 RUN apk add --no-cache --virtual .build-deps build-base openssl-dev gcc musl-dev python3-dev libffi-dev openssh-client make
@@ -32,5 +31,7 @@ ADD spug.conf /etc/nginx/conf.d/default.conf
 RUN mkdir -p /etc/supervisor.d
 ADD spug.ini /etc/supervisor.d/spug.ini
 ADD entrypoint.sh /entrypoint.sh
+
+EXPOSE 80
 
 CMD ["sh", "/entrypoint.sh"]
