@@ -6,8 +6,6 @@ if [ ! -d /run/nginx ]; then
     chown -R nginx.nginx /run/nginx
 fi
 
-docker ps
-
 # init spug
 cd /spug/spug_api
 python3 -m venv venv
