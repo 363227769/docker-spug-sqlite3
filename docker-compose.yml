@@ -6,6 +6,7 @@ services:
         # build: .
         # hub镜像
         image: zhiqw/spug-sqlite3:latest
+        container_name: spug-sqlite3
         privileged: false
         restart: always
         ports: 
