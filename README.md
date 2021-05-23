@@ -35,3 +35,20 @@ docker exec -it spug sh
 初始账号: admin, 密码: spug.dev
 ~~~
 
+
+## 宿主计算机nginx配置
+~~~
+server {
+  listen 80;
+  server_name spug.github.com;
+  location / {
+    proxy_pass http://127.0.0.1:8080;
+    proxy_redirect default;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header REMOTE-HOST $remote_addr;
+  }
+}
+~~~
+
