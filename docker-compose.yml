@@ -1,0 +1,16 @@
+version: '3'
+
+services: 
+    spug: 
+        #启动时构建
+        # build: .
+        # hub镜像
+        image: zhiqw/spug-sqlite3:latest
+        privileged: false
+        restart: always
+        ports: 
+            - "8080:80"
+        volumes: 
+            - ./data/db:/spug/spug_api/db/
+            - ./data/repos:/spug/spug_api/repos/
+            - ./data/logs:/spug/spug_api/logs/
