@@ -15,4 +15,3 @@ services:
             - ./data/db:/spug/spug_api/db/
             - ./data/repos:/spug/spug_api/repos/
             - ./data/logs:/spug/spug_api/logs/
-            - ./data/nginx:/etc/nginx/conf.d/
