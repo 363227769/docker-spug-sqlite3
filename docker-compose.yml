@@ -11,6 +11,7 @@ services:
         ports: 
             - "8080:80"
         volumes: 
+            - ~/.ssh:/root/.ssh
             - ./data/db:/spug/spug_api/db/
             - ./data/repos:/spug/spug_api/repos/
             - ./data/logs:/spug/spug_api/logs/
